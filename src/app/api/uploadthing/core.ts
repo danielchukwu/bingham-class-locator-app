@@ -1,4 +1,5 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
+import { MaybePromise } from "uploadthing/server";
 
 const f = createUploadthing();
 
@@ -11,7 +12,7 @@ export const ourFileRouter = {
     .onUploadComplete(({ metadata, file }) => {
       console.log("file url", file.url);
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
-      return { msg: 'successful!' };
+      return { msg: 'successful!' } as unknown as MaybePromise<void>;
     }),
 } satisfies FileRouter;
 
