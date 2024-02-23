@@ -3,36 +3,39 @@ import ClassroomCard from "../_components/classroom-card";
 import Link from "next/link";
 import { BsArrowLeft } from 'react-icons/bs';
 import { api } from "@/trpc/server";
+import { PageWrapper } from "../_components/PageWrapper";
 
 export default async function Classroom({params}: {params : { id: string}}) {
   const classroom = await api.classroom.getById.query({id: parseInt(params.id)});
 
   return (
-    <main className="lg:w-[1100px] mx-auto bg-yellow-3000">
-      {/* top - cover image and classroom card */}
-      <Link href="/">
-        <div className="flex items-center gap-2">
-          <BsArrowLeft fontSize={20} className="text-gray-700" />
-          <p className="font-semibold text-gray-500">Go back</p>
-        </div>
-      </Link>
+    <PageWrapper>
+      <main>
+        {/* top - cover image and classroom card */}
+        <Link href="/">
+          <div className="flex items-center gap-2">
+            <BsArrowLeft fontSize={20} className="text-gray-700" />
+            <p className="font-semibold text-gray-500">Go back</p>
+          </div>
+        </Link>
 
-      <div className="grid grid-cols-12 gap-3 mt-5">
-        <div className="col-start-1 h-96 bg-purple-400 col-span-8 overflow-hidden rounded">
-          <Image src={classroom?.image ?? '/bhu_logo.png'} alt="classroom picture" width={1000} height={500} quality={100} className="w-full h-full object-cover" />
+        <div className="flex flex-col md:flex-row gap-3 mt-5">
+          <div className="flex-1 aspect-[6/3] bg-purple-400 col-span-8 overflow-hidden rounded">
+            <Image src={classroom?.image ?? '/bhu_logo.png'} alt="classroom picture" width={1000} height={500} quality={100} className="w-full h-full object-cover" />
+          </div>
+          <div className="">
+            {classroom && <ClassroomCard classroom={classroom} showImage={false} />}
+          </div>
         </div>
-        <div className="col-span-4">
-          {classroom && <ClassroomCard classroom={classroom} showImage={false} />}
-        </div>
-      </div>
 
-      {/* map */}
-      <div className="my-10 border-t border-slate-200 pt-5">
-        <h3 className="font-bold text-gray-700">Location</h3>
-        <div className="mt-4 rounded overflow-hidden border border-slate-200" dangerouslySetInnerHTML={{__html: getLocation(classroom?.locationHtml ?? '')}}>
+        {/* map */}
+        <div className="my-10 border-t border-slate-200 pt-5">
+          <h3 className="font-bold text-gray-700">Location</h3>
+          <div className="mt-4 rounded overflow-hidden border border-slate-200" dangerouslySetInnerHTML={{__html: getLocation(classroom?.locationHtml ?? '')}}>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </PageWrapper>
   );
 }
 

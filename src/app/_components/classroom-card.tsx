@@ -12,7 +12,7 @@ export default function ClassroomCard(props: props) {
   const { classroom, showImage } = props;
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
+    <div className="bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
           {/* image */}
           {showImage && (
             <Image src={classroom?.image ?? '/bhu_logo.png'} alt="classroom image" width={400} height={400} quality={100} className="w-full h-52 object-cover bg-purple-400" />

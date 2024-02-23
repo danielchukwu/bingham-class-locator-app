@@ -37,7 +37,7 @@ export const mysqlTable = mysqlTableCreator((name) => `bcl_${name}`);
 // );
 
 export const classroom = mysqlTable(
-  'classroom',
+  'classroomm',
   {
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
     image: varchar('image', { length: 255}),

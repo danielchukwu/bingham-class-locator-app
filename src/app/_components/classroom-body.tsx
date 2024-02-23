@@ -22,8 +22,8 @@ export default function ClassroomsBody({ classrooms } : { classrooms: RouterOutp
       </div>
 
       {/* List of classes */}
-      <div className="grid grid-cols-3 gap-2">
-        {classrooms?.filter((classroom) => classroom.name?.toLowerCase().includes(searchString.toLowerCase())).map((classroom, index) => (
+    <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-2">
+        {classrooms?.filter((classroom) => classroom.name?.toLowerCase().includes(searchString.toLowerCase())).map((classroom) => (
           <Link href={`/${classroom.id}`} key={classroom.id}>
             <ClassroomCard classroom={classroom} showImage={true} key={classroom.id} />
           </Link>
