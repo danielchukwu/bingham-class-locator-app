@@ -14,7 +14,7 @@ export default async function Home() {
       <main className="">
         <div className="">
           <h2 className="font-bold text-4xl text-gray-800">Classes</h2>
-          <ClassroomsBody classrooms={classrooms} />
+          {/* <ClassroomsBody classrooms={classrooms} /> */}
         </div>
       </main>
     </PageWrapper>

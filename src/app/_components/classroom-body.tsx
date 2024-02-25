@@ -7,6 +7,7 @@ import Link from "next/link";
 
 export default function ClassroomsBody({ classrooms } : { classrooms: RouterOutputs['classroom']['getAll'] }) {
   const [searchString, setSearchString] = useState('');
+  
   return (
     <div>
       {/* search input field */}
@@ -24,7 +25,7 @@ export default function ClassroomsBody({ classrooms } : { classrooms: RouterOutp
       {/* List of classes */}
     <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-2">
         {classrooms?.filter((classroom) => classroom.name?.toLowerCase().includes(searchString.toLowerCase())).map((classroom) => (
-          <Link href={`/${classroom.id}`} key={classroom.id}>
+          <Link href={`/${classroom.id}`} key={`${classroom.id}`}>
             <ClassroomCard classroom={classroom} showImage={true} key={classroom.id} />
           </Link>
         ))}
