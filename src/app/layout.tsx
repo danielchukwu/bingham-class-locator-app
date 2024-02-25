@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider cookies={cookies().toString()}>
+        {/* <TRPCReactProvider cookies={cookies().toString()}> */}
           <Navbar />
           {children}
-        </TRPCReactProvider>
+        {/* </TRPCReactProvider> */}
       </body>
     </html>
   );
