@@ -11,7 +11,7 @@ export default function ClassroomsBody({ classrooms } : { classrooms: RouterOutp
   return (
     <div>
       {/* search input field */}
-      <div className="w-96 mt-8">
+      <div className="w-full sm:w-96 mt-8">
           <input type="text" id="first_name" onChange={(e) => setSearchString(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John" required />
       </div>
       {/* classes count */}
