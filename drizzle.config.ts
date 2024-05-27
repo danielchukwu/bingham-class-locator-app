@@ -1,12 +1,18 @@
-import { type Config } from "drizzle-kit";
-
+// import type { Config } from "drizzle-kit";
+import { defineConfig } from 'drizzle-kit';
+import 'dotenv/config';
+import * as dotenv from "dotenv";
 import { env } from "@/env.mjs";
 
-export default {
-  schema: "./src/server/db/schema.ts",
-  driver: "mysql2",
+// dotenv.config();
+
+export default defineConfig({
+  schema: './src/db/schema.ts',
+  out: './migrations',
+  dialect: 'sqlite',
+  driver: 'turso',
   dbCredentials: {
-    connectionString: env.DATABASE_URL,
+    url: process.env.TURSO_CONNECTION_URL!,
+    authToken: process.env.TURSO_AUTH_TOKEN!,
   },
-  tablesFilter: ["bhu_class_locator_*"],
-} satisfies Config;
+});
