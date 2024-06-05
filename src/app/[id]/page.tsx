@@ -1,12 +1,12 @@
 import Image from "next/image";
 import ClassroomCard from "../_components/classroom-card";
 import Link from "next/link";
-import { BsArrowLeft } from 'react-icons/bs';
-import { api } from "@/trpc/server";
+// import { BsArrowLeft } from 'react-icons/bs';
+import { api } from "~/trpc/server";
 import { PageWrapper } from "../_components/PageWrapper";
 
 export default async function Classroom({params}: {params : { id: string}}) {
-  const classroom = await api.classroom.getById.query({id: parseInt(params.id)});
+  const classroom = await api.classroom.getById({id: parseInt(params.id)});
 
   return (
     <PageWrapper>
@@ -14,7 +14,7 @@ export default async function Classroom({params}: {params : { id: string}}) {
         {/* top - cover image and classroom card */}
         <Link href="/">
           <div className="flex items-center gap-2">
-            <BsArrowLeft fontSize={20} className="text-gray-700" />
+            {/* <BsArrowLeft fontSize={20} className="text-gray-700" /> */}
             <p className="font-semibold text-gray-500">Go back</p>
           </div>
         </Link>

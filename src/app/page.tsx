@@ -1,13 +1,14 @@
+import Image from "next/image";
 import { PageWrapper } from "./_components/PageWrapper";
 import ClassroomsBody from "./_components/classroom-body";
-import { api } from "@/trpc/server";
+import { api } from "~/trpc/server";
 
 export const metadata = {
   title: 'BHU Class Locator'
 }
 
 export default async function Home() {
-  const classrooms = await api.classroom.getAll.query();
+  const classrooms = await api.classroom.getAll();
   
   return (
     <PageWrapper>

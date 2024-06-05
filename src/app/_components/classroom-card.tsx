@@ -1,6 +1,6 @@
-import type { RouterOutputs } from "@/trpc/shared";
 import Image from "next/image";
 import Link from "next/link";
+import type { RouterOutputs } from "~/trpc/react";
 
 // type props = RouterOutputs['classroom']['getAll'][number];
 interface props {

@@ -1,9 +1,9 @@
 'use client';
 
-import type { RouterOutputs } from "@/trpc/shared";
 import { useState } from "react";
 import ClassroomCard from "./classroom-card";
 import Link from "next/link";
+import { type RouterOutputs } from "~/trpc/react";
 
 export default function ClassroomsBody({ classrooms } : { classrooms: RouterOutputs['classroom']['getAll'] }) {
   const [searchString, setSearchString] = useState('');

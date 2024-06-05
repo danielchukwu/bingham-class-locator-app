@@ -1,7 +1,8 @@
-import { classroom } from "@/server/db/schema";
+// import { classroom } from "~/server/db/schema";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { desc, eq } from "drizzle-orm";
 import { z } from "zod";
+import { classroom } from "~/server/db/schema";
 
 const classroomZodType = {
   image: z.string(),

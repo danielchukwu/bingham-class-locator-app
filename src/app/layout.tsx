@@ -1,9 +1,8 @@
-import "@/styles/globals.css";
+import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
 
-import { TRPCReactProvider } from "@/trpc/react";
+import { TRPCReactProvider } from "~/trpc/react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./_components/button";
@@ -28,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <TRPCReactProvider cookies={cookies().toString()}>
+        <TRPCReactProvider>
           <Navbar />
           {children}
         </TRPCReactProvider>

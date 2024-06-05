@@ -21,9 +21,10 @@ export const classroom = sqliteTable(
     availableSeats: int('available_seats'),
     boardsCount: int('boards_count'),
     windowsCount: int('windows_count'),
-    boardsQuality: text('boards_quality', {  length: 20, enum: ['poor', 'okay', 'good', 'very good']}),
+    boardsQuality: text('boards_quality', { length: 20 }),
     airConditionerCount: int('air_conditioner_count'),
     locationHtml: text('location_html', {  length: 1000, }),
     createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`).notNull(),
   } 
 );
+export type TClassroom = typeof classroom.$inferInsert;
